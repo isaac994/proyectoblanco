@@ -3,6 +3,7 @@
     "type": "module",
     "scripts": {
         "build": "vite build",
+        "build:https": "NODE_ENV=production VITE_HTTPS=true VITE_ASSET_URL=https://proyectoblanco-production.up.railway.app vite build",
         "build:ssr": "vite build && vite build --ssr",
         "dev": "vite",
         "format": "prettier --write resources/",

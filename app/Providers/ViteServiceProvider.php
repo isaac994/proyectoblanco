@@ -3,13 +3,12 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
-use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Facades\Vite;
 
-class AppServiceProvider extends ServiceProvider
+class ViteServiceProvider extends ServiceProvider
 {
     /**
-     * Register any application services.
+     * Register services.
      */
     public function register(): void
     {
@@ -17,15 +16,12 @@ class AppServiceProvider extends ServiceProvider
     }
 
     /**
-     * Bootstrap any application services.
+     * Bootstrap services.
      */
     public function boot(): void
     {
-        // Force HTTPS in production
+        // Force HTTPS for Vite assets in production
         if (app()->environment('production')) {
-            URL::forceScheme('https');
-
-            // Force HTTPS for Vite assets
             Vite::useHotFile('https://proyectoblanco-production.up.railway.app/build/hot');
         }
     }

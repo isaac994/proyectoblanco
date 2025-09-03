@@ -20,4 +20,8 @@ export default defineConfig({
             },
         }),
     ],
+    server: {
+        https: true,
+    },
+    base: process.env.NODE_ENV === 'production' ? 'https://proyectoblanco-production.up.railway.app' : '',
 });
